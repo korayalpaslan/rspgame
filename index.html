@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <title>Online Game | Rock, Paper, Scissors</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <section class="overlay" id="overlay">
+      <h2>RULES</h2>
+      <img id="rules-image"src="images/image-rules.svg" alt="Rules">
+      <img id="close" src="images/icon-close.svg" alt="Close">
+    </section>
+
+    <div class="game">
+
+      <section class="table">
+        <img class="logo" src="images/logo.svg" alt="Logo">
+        <div class="score">
+          <h3>Score</h3>
+          <h1 id="score">0</h1>
+        </div>
+      </section>
+    
+      <section class="selection">
+        <div class="circles">
+          <div class="top">
+            <div class="left paper" id="paper">
+              <a href="#"><img src="images/icon-paper.svg" alt="Paper" id="paper-icon"></a>
+            </div>
+
+            <div class="right scissors" id="scissors">
+              <a href="#"><img src="images/icon-scissors.svg" alt="Scissors" id="scissors-icon"></a>
+            </div>
+          </div>
+          <div class="picking">
+            <h4>You Picked</h4>
+            <h4>The House Picked</h4>
+          </div>
+          <div class="bottom">
+            <div class="center rock" id="rock">
+              <a href="#"><img src="images/icon-rock.svg" alt="Rock" id="rock-icon"></a>
+            </div>
+          </div> 
+        </div>
+        <div class="triangle">
+          <img src="images/bg-triangle.svg" alt="Triangle">
+        </div>
+      </section>
+    
+      <section class="result">
+        <h2 id="result">You Lose</h2>
+        <button id="play-again">Play Again</button>
+      </section>
+    
+      <section class="rules">
+        <button id="rules">Rules</button>
+      </section>
+  
+    </div>
+
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
