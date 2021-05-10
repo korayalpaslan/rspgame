@@ -1,0 +1,455 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+/* Variables */
+/* Functions for Color */
+/* Mixins */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow Semi Condensed';
+  background: #1f3756;
+  background: linear-gradient(180deg, #1f3756 0%, black 100%);
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+}
+
+.overlay h2 {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.overlay #rules-image {
+  height: 50%;
+  margin: 2em;
+}
+
+@media (min-width: 1250px) {
+  .overlay #rules-image {
+    height: 60%;
+    align-self: center;
+  }
+}
+
+.overlay #close {
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  padding-bottom: 1em;
+  margin-top: 0;
+}
+
+.game {
+  margin: 1em 2em;
+  width: 90%;
+  max-width: 375px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1250px) {
+  .game {
+    max-width: 40%;
+    align-self: center;
+  }
+}
+
+/* Table */
+.table {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid #606e85;
+  border-radius: 10px;
+}
+
+.table .logo {
+  height: 50px;
+  margin-left: 1em;
+}
+
+.table .score {
+  text-align: center;
+  margin: .5em;
+  padding: .5em;
+  width: 60px;
+  background: white;
+  border-radius: 5px;
+}
+
+.table .score h3 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  color: darkblue;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .1em;
+}
+
+.table .score h1 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  color: #606e85;
+  font-size: 35px;
+}
+
+/* Selection */
+.selection {
+  position: relative;
+  margin-top: 2em;
+  width: 100%;
+  align-self: center;
+}
+
+@media (min-width: 1250px) {
+  .selection {
+    max-width: 650px;
+  }
+}
+
+.selection .circles .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selection .circles .top .left {
+  height: 100px;
+  width: 100px;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1250px) {
+  .selection .circles .top .left {
+    height: 175px;
+    width: 175px;
+  }
+}
+
+.selection .circles .top .right {
+  height: 100px;
+  width: 100px;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1250px) {
+  .selection .circles .top .right {
+    height: 175px;
+    width: 175px;
+  }
+}
+
+.selection .circles .picking {
+  display: none;
+}
+
+.selection .circles .bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+@media (min-width: 1250px) {
+  .selection .circles .bottom {
+    margin-top: 3em;
+  }
+}
+
+.selection .circles .bottom .center {
+  height: 100px;
+  width: 100px;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1250px) {
+  .selection .circles .bottom .center {
+    height: 175px;
+    width: 175px;
+  }
+}
+
+.selection .triangle {
+  position: absolute;
+  z-index: -1;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.selection .triangle img {
+  height: 60%;
+  width: 60%;
+}
+
+/* Result */
+.result {
+  display: none;
+}
+
+.rules {
+  margin-top: 1.5em;
+  align-self: center;
+}
+
+.rules button {
+  padding: 1em 3em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: 3px solid #606e85;
+  border-radius: 10px;
+  letter-spacing: .2em;
+}
+
+/* PICKING COLORS */
+.paper {
+  border: 15px solid #5671f5;
+}
+
+.scissors {
+  border: 15px solid #eca922;
+}
+
+.rock {
+  border: 15px solid #dc2e4e;
+}
+
+/* STEP TWO */
+.steptwo .top .left {
+  animation: ripple 0.7s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3), 0 0 0 1em rgba(0, 0, 0, 0.3), 0 0 0 3em rgba(0, 0, 0, 0.3), 0 0 0 5em rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 1em rgba(0, 0, 0, 0.3), 0 0 0 3em rgba(0, 0, 0, 0.3), 0 0 0 5em rgba(0, 0, 0, 0.3), 0 0 0 8em rgba(0, 0, 0, 0);
+  }
+}
+
+.steptwo .top .right {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 50%;
+  border: 15px solid rgba(0, 0, 0, 0) !important;
+}
+
+.steptwo .top .right img {
+  display: none;
+}
+
+.steptwo .picking {
+  display: flex !important;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.steptwo .picking h4:first-child {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  width: 130px;
+  text-align: center;
+}
+
+@media (min-width: 1250px) {
+  .steptwo .picking h4:first-child {
+    font-size: 24px;
+    width: 205px;
+  }
+}
+
+.steptwo .picking h4:last-child {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  width: 130px;
+  text-align: center;
+}
+
+@media (min-width: 1250px) {
+  .steptwo .picking h4:last-child {
+    font-size: 24px;
+    width: 205px;
+  }
+}
+
+.steptwo .bottom {
+  display: none !important;
+}
+
+.steptwo .triangle {
+  display: none;
+}
+
+.steptwo .rules {
+  display: none;
+}
+
+/* STEP THREE */
+.stepthree .picking {
+  display: flex !important;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.stepthree .picking h4:first-child {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  width: 130px;
+  text-align: center;
+}
+
+@media (min-width: 1250px) {
+  .stepthree .picking h4:first-child {
+    font-size: 24px;
+    width: 205px;
+  }
+}
+
+.stepthree .picking h4:last-child {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  width: 130px;
+  text-align: center;
+}
+
+@media (min-width: 1250px) {
+  .stepthree .picking h4:last-child {
+    font-size: 24px;
+    width: 205px;
+  }
+}
+
+.stepthree .bottom {
+  display: none !important;
+}
+
+.stepthree .triangle {
+  display: none;
+}
+
+/* STEP FOUR */
+.stepfour .picking {
+  display: flex !important;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.stepfour .picking h4:first-child {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  width: 130px;
+  text-align: center;
+}
+
+@media (min-width: 1250px) {
+  .stepfour .picking h4:first-child {
+    font-size: 24px;
+    width: 205px;
+  }
+}
+
+.stepfour .picking h4:last-child {
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+  width: 130px;
+  text-align: center;
+}
+
+@media (min-width: 1250px) {
+  .stepfour .picking h4:last-child {
+    font-size: 24px;
+    width: 205px;
+  }
+}
+
+.stepfour .bottom {
+  display: none !important;
+}
+
+.stepfour .triangle {
+  display: none;
+}
+
+.stepfour .result {
+  display: block;
+  padding: 0;
+  text-align: center;
+  margin-top: 4em;
+}
+
+.stepfour .result h2 {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: white;
+}
+
+.stepfour .result button {
+  display: block;
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  font-size: 18px;
+  font-weight: 700;
+  color: #dc2e4e;
+  background-color: white;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: none;
+  letter-spacing: 0.05em;
+  letter-spacing: .2em;
+}
+
+.stepfour .rules {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */
